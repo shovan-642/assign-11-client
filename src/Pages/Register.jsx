@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import SocialLogin from '../Component/SocialLogin';
 
 const Register = () => {
 
-    const {createUser}=useContext(AuthContext)
+    const {createUser, updatedProfile, setUser}=useContext(AuthContext)
+    const navigate = useNavigate()
 
 
     const handleRegister = (e) =>{
@@ -18,7 +21,15 @@ const Register = () => {
 
         createUser(email, password)
         .then(result=>{
-            console.log(result.user)
+            const user = result.user;
+            setUser(user);
+            updatedProfile({displayName: name, photoURL: photo})
+            .then(() => {
+                navigate("/");
+              })
+              .catch((err) => {
+                console.log(err);
+              });
         })
         .catch(error=>{
             console.log(error.message)
@@ -53,6 +64,7 @@ const Register = () => {
           <div><a className="link link-hover">Forgot password?</a></div>
           <button className="btn btn-neutral mt-4">Login</button>
         </form>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   </div>

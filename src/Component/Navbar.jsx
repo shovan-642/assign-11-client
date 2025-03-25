@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../Context/AuthContext";
+import { FaRegUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const {user, logout}=useContext(AuthContext)
+  console.log(user)
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm">
@@ -41,13 +47,24 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className='btn btn-ghost bg-red-600 text-white'>
+        {
+            user && user?.email? (<button onClick={logout}>Logout</button>):(<div><Link to={"/auth/login"}>Login</Link></div>)
+        }
+
+    </div>
     <div className="dropdown dropdown-end">
+
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        <div className="rounded-full">
+        {
+        user && user?.email ? (<div>
+          {
+            user.photoURL ? (<img className='w-12 h-12 rounded-full mr-3' src={user.photoURL} alt="" title={user.displayName} />) :
+            (<FaRegUserCircle className='mr-3 text-3xl'></FaRegUserCircle>)
+          }
+        </div>): (<FaRegUserCircle className='mr-3 text-3xl'></FaRegUserCircle>)
+      }
         </div>
       </div>
       <ul
@@ -55,7 +72,7 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
           <a className="justify-between">
-            Profile
+            {user?.displayName}
             <span className="badge">New</span>
           </a>
         </li>
