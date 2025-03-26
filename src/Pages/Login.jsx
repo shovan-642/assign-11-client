@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
 import SocialLogin from '../Component/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = location.state || "/"
     const {signInUser}= useContext(AuthContext)
     const handleSignIn = (e) =>{
         e.preventDefault()
@@ -16,6 +20,7 @@ const Login = () => {
         signInUser(email, password)
         .then(result=>{
             console.log(result.user)
+            navigate(from)
         })
         .catch(error=>{
             console.log(error.message)
