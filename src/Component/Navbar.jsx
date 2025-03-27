@@ -5,7 +5,6 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const {user, logout}=useContext(AuthContext)
-  console.log(user)
 
   const links=<>
     <li><NavLink to={"/"}>Home</NavLink></li>

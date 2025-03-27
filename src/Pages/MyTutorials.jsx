@@ -8,15 +8,16 @@ const MyTutorials = () => {
     const [tutorials, setTutorials]=useState([])
 
     useEffect(()=>{
-        fetch(`https://assign-11-server-zeta.vercel.app/myTutorials?email=${user?.email}`)
+        if(!user?.email) return
+        fetch(`https://assignment-11-server-six-gamma.vercel.app/myTutorials?email=${user.email}`)
         .then(res=>res.json())
         .then(data=>setTutorials(data))
-    },[user.email])
+    },[user?.email])
 
     return (
         <div>
             {
-                tutorials.map(tutorial=><h2>{tutorial.language}</h2>)
+                tutorials.map((tutorial, index)=><h2 key={index}>{tutorial.language}</h2>)
             }
         </div>
     );

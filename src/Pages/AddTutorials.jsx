@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const AddTutorials = () => {
     const addData = Object.fromEntries(formData.entries())
     addData.TutorImage = user?.photoURL 
     console.log(addData)
-    fetch('https://assign-11-server-zeta.vercel.app/tutor',{
+    fetch('https://assignment-11-server-six-gamma.vercel.app/',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -20,9 +21,21 @@ const AddTutorials = () => {
         body: JSON.stringify(addData)
 
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-  }
+    .then((res)=>res.json())
+    .then((data)=>{
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          title: "Success!",
+          text: "Tutorial added successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+      }
+    }
+
+  
+  )}
 
   return (
     <div>
