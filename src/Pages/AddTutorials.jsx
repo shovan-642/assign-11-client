@@ -10,7 +10,9 @@ const AddTutorials = () => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const addData = Object.fromEntries(formData.entries())
-    fetch('https://assign-11-server-zeta.vercel.app/tutorials',{
+    addData.TutorImage = user?.photoURL 
+    console.log(addData)
+    fetch('https://assign-11-server-zeta.vercel.app/tutor',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -34,17 +36,19 @@ const AddTutorials = () => {
             name="name"
             className="input"
             placeholder="Your Name"
-            defaultValue={name}
-            disabled
+            value={name}
+readOnly
+            
           />
           <label className="fieldset-label">Email</label>
           <input
             type="email"
-            name="email"
+            name="tutor_email"
             className="input"
             placeholder="Email"
-            defaultValue={email}
-            disabled
+            value={email}
+            readOnly
+            
           />
           <label className="fieldset-label">Tutorial Image</label>
           <input
