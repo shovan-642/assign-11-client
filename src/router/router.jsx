@@ -13,6 +13,7 @@ import MyBookedTutors from "../Pages/MyBookedTutors";
 import MyTutorials from "../Pages/MyTutorials";
 import PrivateRoute from "./PrivateRoute";
 import UpdateTutorial from "../Pages/UpdateTutorial";
+import TutorDetails from "../Pages/TutorDetails";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
             path: "/find-tutors/:category",
             element: <FindTutors></FindTutors>,
             loader: ({params})=>fetch(`https://assignment-11-server-six-gamma.vercel.app/find-tutors/${params.category}`)
+        },
+        {
+            path: "/tutor/:details",
+            element: <TutorDetails></TutorDetails>,
+            loader: ({params})=>fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor/${params.details}`)
         },
         {
             path: "/add-tutorials",
