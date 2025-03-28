@@ -12,6 +12,7 @@ import AddTutorials from "../Pages/AddTutorials";
 import MyBookedTutors from "../Pages/MyBookedTutors";
 import MyTutorials from "../Pages/MyTutorials";
 import PrivateRoute from "./PrivateRoute";
+import UpdateTutorial from "../Pages/UpdateTutorial";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         {
             path: "/add-tutorials",
             element: <PrivateRoute><AddTutorials></AddTutorials></PrivateRoute>
+        },
+        {
+            path: "/update-tutorial/:id",
+            element: <PrivateRoute><UpdateTutorial></UpdateTutorial></PrivateRoute>,
+            loader: ({params})=>fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor/${params.id}`)
         },
         {
             path: "/my-tutorials",

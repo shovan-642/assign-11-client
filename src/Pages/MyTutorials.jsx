@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../Context/AuthContext';
+import Tutorial from '../Component/Tutorial';
 
 const MyTutorials = () => {
 
@@ -17,7 +18,7 @@ const MyTutorials = () => {
     return (
         <div>
             {
-                tutorials.map((tutorial, index)=><h2 key={index}>{tutorial.language}</h2>)
+                tutorials.map((tutorial, index)=><Tutorial key={index} tutorial={tutorial} tutorials={tutorials} setTutorials={setTutorials}></Tutorial>)
             }
         </div>
     );
