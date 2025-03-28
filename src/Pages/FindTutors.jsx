@@ -1,23 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
-import AuthContext from '../Context/AuthContext';
+
+import { useLoaderData,  } from 'react-router-dom';
 
 const FindTutors = () => {
 
-        const {user}=useContext(AuthContext)
-    
-        const [tutors, setTutors]=useState([])
-    
-        useEffect(()=>{
-            if(!user?.email) return
-            fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor`)
-            .then(res=>res.json())
-            .then(data=>setTutors(data))
-        },[user?.email])
+        const categoryTutor = useLoaderData()
 
     return (
         <div>
             {
-                tutors.map((tutor, idx)=><h1 key={idx}>{tutor.name}</h1>)
+                categoryTutor.map((tutor, idx)=><h1 key={idx}>{tutor.name}</h1>)
             }
         </div>
     );

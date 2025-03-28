@@ -26,7 +26,13 @@ const router = createBrowserRouter([
         },
         {
             path: "/find-tutors",
-            element: <FindTutors></FindTutors>
+            element: <FindTutors></FindTutors>, 
+            loader: ()=>fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor`)
+        },
+        {
+            path: "/find-tutors/:category",
+            element: <FindTutors></FindTutors>,
+            loader: ({params})=>fetch(`https://assignment-11-server-six-gamma.vercel.app/find-tutors/${params.category}`)
         },
         {
             path: "/add-tutorials",

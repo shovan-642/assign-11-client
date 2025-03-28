@@ -10,9 +10,13 @@ const MyTutorials = () => {
 
     useEffect(()=>{
         if(!user?.email) return
+        
         fetch(`https://assignment-11-server-six-gamma.vercel.app/myTutorials?email=${user.email}`)
         .then(res=>res.json())
-        .then(data=>setTutorials(data))
+        .then(data=>{setTutorials(data)
+            
+        })
+        
     },[user?.email])
 
     return (
