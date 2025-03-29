@@ -2,6 +2,7 @@
 import AuthContext from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import { useLoaderData } from 'react-router-dom';
+import { useContext } from 'react';
 
 const UpdateTutorial = () => {
 
@@ -10,19 +11,12 @@ const UpdateTutorial = () => {
 
     const {_id, name, tutor_email, image, language, price, description, review, TutorImage}= oldTutorial
 
-    console.log(oldTutorial)
-
-
-
-
-
-
-
     const handleUpdateTutorials = e =>{
         e.preventDefault()
         const formData = new FormData(e.target)
         const updateData = Object.fromEntries(formData.entries())
         console.log(updateData)
+        updateData.TutorImage = TutorImage
         updateData.review = parseInt(updateData.review)
         fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor/${_id}`,{
             method: 'PUT',
@@ -34,7 +28,6 @@ const UpdateTutorial = () => {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          console.log(data)
           if(data.modifiedCount > 0){
             Swal.fire({
               title: "Success!",

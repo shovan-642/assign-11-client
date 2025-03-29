@@ -85,7 +85,7 @@ readOnly
             className="input"
             placeholder="Input Price"
           />
-          <label className="fieldset-label">Price</label>
+          <label className="fieldset-label">Description</label>
           <textarea name="description" className="w-100 h-50 border-2 border-black" placeholder="Write Tutorial Description"></textarea>
           <label className="fieldset-label">Review</label>
           <input
@@ -94,6 +94,7 @@ readOnly
             className="input"
             placeholder="Input Review"
             value={0}
+            readOnly
           />
           <button type="submit" className="btn btn-ghost">Submit</button>
         </form>

@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/tutor/:details",
-            element: <TutorDetails></TutorDetails>,
+            element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>,
             loader: ({params})=>fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor/${params.details}`)
         },
         {
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/my-booked-tutors",
-            element: <MyBookedTutors></MyBookedTutors>
+            element: <PrivateRoute><MyBookedTutors></MyBookedTutors></PrivateRoute>
         },
       ]
     },
