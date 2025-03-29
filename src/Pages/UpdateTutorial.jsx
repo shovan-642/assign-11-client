@@ -23,6 +23,7 @@ const UpdateTutorial = () => {
         const formData = new FormData(e.target)
         const updateData = Object.fromEntries(formData.entries())
         console.log(updateData)
+        updateData.review = parseInt(updateData.review)
         fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor/${_id}`,{
             method: 'PUT',
             headers: {

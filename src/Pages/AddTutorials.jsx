@@ -11,7 +11,8 @@ const AddTutorials = () => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const addData = Object.fromEntries(formData.entries())
-    addData.TutorImage = user?.photoURL 
+    addData.TutorImage = user?.photoURL
+    addData.review = parseInt(addData.review) 
     console.log(addData)
     fetch('https://assignment-11-server-six-gamma.vercel.app/',{
         method: 'POST',
@@ -91,8 +92,8 @@ readOnly
             type="number"
             name="review"
             className="input"
-            placeholder="Input Price"
-            defaultValue={0}
+            placeholder="Input Review"
+            value={0}
           />
           <button type="submit" className="btn btn-ghost">Submit</button>
         </form>
