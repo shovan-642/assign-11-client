@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 const BookTutorCart = ({bookTutor}) => {
 
-    const {tutorId, image, language, price, tutorEmail} = bookTutor
+    const {tutorId, image, language, price, tutorEmail, userEmail} = bookTutor
 
     const handleReviewCount = (tutorId)=>{
         console.log(tutorId)
@@ -38,7 +38,8 @@ const BookTutorCart = ({bookTutor}) => {
             <p>{image}</p>
             <p>{language}</p>
             <p>{price}</p>
-            <p>{tutorEmail}</p>
+            <p>Tutor:{tutorEmail}</p>
+            <p>User: {userEmail}</p>
             <button onClick={()=>handleReviewCount(tutorId)} className='btn btn-accent'>Review</button>
         </div>
     );

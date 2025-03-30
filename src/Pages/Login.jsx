@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
 import SocialLogin from '../Component/SocialLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
 

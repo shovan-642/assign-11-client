@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
+import axios from 'axios';
 
 const AuthProvider = ({children}) => {
 
@@ -22,6 +23,27 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
+            if(currentUser?.email){
+                const user = {email: currentUser?.email}
+                axios.post('https://assignment-11-server-six-gamma.vercel.app/jwt', user, {
+                    withCredentials: true,
+                  })
+                  .then(res=>{console.log("token sent success",res.data)
+                    setLoading(false)
+                  })
+            }
+            else{
+                axios.post('https://assignment-11-server-six-gamma.vercel.app/logout', {}, {
+                    withCredentials: true,
+                })
+                .then(res=>{console.log("logout",res.data)
+                    setLoading(false)
+                })
+            }
+
+
+
+
             setLoading(false)
         })
 
@@ -53,7 +75,8 @@ const AuthProvider = ({children}) => {
         signInUser,
         logout,
         updatedProfile,
-        signInWithGoogle
+        signInWithGoogle,
+        setLoading
         }
 
     return (

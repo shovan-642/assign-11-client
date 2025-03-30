@@ -1,23 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../Context/AuthContext';
 import BookTutorCart from '../Component/BookTutorCart';
+import axios from 'axios';
 
 const MyBookedTutors = () => {
 
-        const {user}=useContext(AuthContext)
+        const {user, setLoading}=useContext(AuthContext)
     
         const [bookTutors, setBookTutors]=useState([])
     
-        useEffect(()=>{
-            if(!user?.email) return
-            
-            fetch(`https://assignment-11-server-six-gamma.vercel.app/bookTutor?email=${user.email}`)
-            .then(res=>res.json())
-            .then(data=>{setBookTutors(data)
-                
+        useEffect(()=>{            
+            setLoading(true)
+            axios.get(`https://assignment-11-server-six-gamma.vercel.app/myBookTutor?email=${user.email}`,{withCredentials: true})
+            .then(res=>{setBookTutors(res.data)
+                setLoading(false)
             })
             
-        },[user?.email])
+        },[user?.email, setLoading])
 
     return (
         <div>

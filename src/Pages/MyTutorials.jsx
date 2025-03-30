@@ -1,23 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../Context/AuthContext';
 import Tutorial from '../Component/Tutorial';
+import axios from 'axios';
 
 const MyTutorials = () => {
 
-    const {user}=useContext(AuthContext)
+    const {user, setLoading}=useContext(AuthContext)
 
     const [tutorials, setTutorials]=useState([])
 
     useEffect(()=>{
-        if(!user?.email) return
+        setLoading(true)
+        axios.get(`https://assignment-11-server-six-gamma.vercel.app/myTutorials?email=${user.email}`,{withCredentials: true})
+        .then(res=>{setTutorials(res.data)
+        setLoading(false)
+    })
         
-        fetch(`https://assignment-11-server-six-gamma.vercel.app/myTutorials?email=${user.email}`)
-        .then(res=>res.json())
-        .then(data=>{setTutorials(data)
-            
-        })
-        
-    },[user?.email])
+    }, [user?.email, setLoading])
 
     return (
         <div>
