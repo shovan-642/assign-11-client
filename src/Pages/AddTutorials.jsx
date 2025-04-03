@@ -39,64 +39,82 @@ const AddTutorials = () => {
   )}
 
   return (
-    <div>
-      <h1>add tutorials</h1>
+    <div className="w-9/12 mx-auto">
+      <h1 className="text-3xl font-bold uppercase text-center py-5">add tutorial</h1>
 
       <div>
-        <form onSubmit={handleAddTutorials} className="fieldset">
+        <form onSubmit={handleAddTutorials} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div>
           <label className="fieldset-label">Name</label>
           <input
             type="text"
             name="name"
-            className="input"
+            className="input w-full"
             placeholder="Your Name"
             value={name}
+            
 readOnly
             
           />
+          </div>
+          <div>
           <label className="fieldset-label">Email</label>
           <input
             type="email"
             name="tutor_email"
-            className="input"
+            className="input w-full"
             placeholder="Email"
             value={email}
             readOnly
             
           />
-          <label className="fieldset-label">Tutorial Image</label>
+          </div>
+        <div>
+        <label className="fieldset-label">Tutorial Image</label>
           <input
             type="url"
             name="image"
-            className="input"
+            className="input w-full"
             placeholder="Tutorial Photo Url"
           />
-          <label className="fieldset-label">Language</label>
+        </div>
+        <div>
+        <label className="fieldset-label">Language</label>
           <input
             type="text"
             name="language"
-            className="input"
+            className="input w-full"
             placeholder="Input Language"
           />
-          <label className="fieldset-label">Price</label>
+        </div>
+        <div>
+        <label className="fieldset-label">Price</label>
           <input
             type="number"
             name="price"
-            className="input"
+            className="input w-full"
             placeholder="Input Price"
           />
-          <label className="fieldset-label">Description</label>
-          <textarea name="description" className="w-100 h-50 border-2 border-black" placeholder="Write Tutorial Description"></textarea>
-          <label className="fieldset-label">Review</label>
+        </div>
+        <div>
+        <label className="fieldset-label">Review</label>
           <input
             type="number"
             name="review"
-            className="input"
+            className="input w-full"
             placeholder="Input Review"
             value={0}
             readOnly
           />
-          <button type="submit" className="btn btn-ghost">Submit</button>
+        </div>
+    <div className="col-span-full">
+    <label className="fieldset-label">Description</label>
+          <textarea name="description" className="w-full h-50 border-2 p-3 border-gray-400" placeholder="Write Tutorial Description"></textarea>
+
+    </div>
+
+    <button type="submit" className="btn col-span-1 text-white md:col-span-2 lg:col-span-3 w-full bg-[#ff006e] hover:bg-[#ff0095]">Submit</button>
+
         </form>
       </div>
     </div>
