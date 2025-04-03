@@ -1,11 +1,13 @@
 
-import { useLoaderData,  } from 'react-router-dom';
+import { useLoaderData, useParams,  } from 'react-router-dom';
 import Tutor from '../Component/Tutor';
 import { useEffect, useState } from 'react';
 
 const FindTutors = () => {
 
         const [tutorData, setTutorData]= useState([])
+
+        const {category} = useParams()
 
         const categoryTutor = useLoaderData()
 
@@ -20,11 +22,21 @@ const FindTutors = () => {
 
 
         useEffect(()=>{
-            fetch(`https://assignment-11-server-six-gamma.vercel.app/tutor?search=${search}`)
+
+            let url = `https://assignment-11-server-six-gamma.vercel.app/tutor`;
+
+            if(category){
+                url = `https://assignment-11-server-six-gamma.vercel.app/find-tutors/${category}`
+            }
+            else if (search){
+                url = `https://assignment-11-server-six-gamma.vercel.app/tutor?search=${search}`
+            }
+
+            fetch(url)
             .then((res)=>res.json())
             .then((data)=>setTutorData(data))
             .catch((error)=>console.log(error))
-        },[search])
+        },[search, category])
 
 
     return (
