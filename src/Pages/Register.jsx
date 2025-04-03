@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialLogin from '../Component/SocialLogin';
+import registerAnimation from '../assets/Register.json'
+import Lottie from 'lottie-react';
 
 const Register = () => {
 
@@ -45,10 +47,7 @@ const Register = () => {
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Register now!</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
+      <Lottie className='h-96' animationData={registerAnimation}></Lottie>
     </div>
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
@@ -62,8 +61,13 @@ const Register = () => {
           <label className="fieldset-label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn btn-neutral mt-4 bg-[#ff006e] hover:bg-[#ff0095] border-0">Register</button>
+
         </form>
+        <label className=''>
+          Already have an Account?
+            <span><Link className="text-[#ff006e]  ml-3" to={"/auth/login"}>Login</Link></span>
+        </label>
         <SocialLogin></SocialLogin>
       </div>
     </div>

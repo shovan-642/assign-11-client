@@ -20,7 +20,7 @@ const SocialLogin = () => {
     <div>
         <div className="divider">OR</div>
       <button
-        className="flex w-48 gap-3 items-center btn btn-accent bg-white"
+        className="flex border-r-2 border-[#ff006e] w-full mx-auto gap-3 items-center btn btn-wide bg-white"
         onClick={handleGoogleSignIn}
       >
         <FcGoogle></FcGoogle> <span>Login With Google</span>

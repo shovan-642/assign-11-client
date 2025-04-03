@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-sm px-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,7 +28,7 @@ const Navbar = () => {
           {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl text-[#ff006e]">EduSync</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -36,7 +36,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <div className='btn btn-ghost bg-red-600 text-white'>
+  <div className='btn btn-ghost bg-[#ff006e] hover:bg-[#ff0095] border-0 text-white mr-5'>
         {
             user && user?.email? (<button onClick={logout}>Logout</button>):(<div><Link to={"/auth/login"}>Login</Link></div>)
         }
