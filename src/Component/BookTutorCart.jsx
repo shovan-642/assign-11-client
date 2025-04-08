@@ -34,8 +34,8 @@ const BookTutorCart = ({bookTutor}) => {
     return (
         <div>
 
-<div className=" flex rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
-  <img src={image} alt="" className="mt-5 ml-5 mb-5 object-cover object-center w-84 h-84 rounded-t-md h-72 dark:bg-gray-500" />
+<div className=" md:flex lg:flex rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+  <img src={image} alt="" className="md:mt-5 md:ml-5 md:mb-5 w-full max-w-[400px] md:max-w-[350px] lg:max-w-[300px] h-64 rounded-t-md" />
   <div className="flex flex-col justify-between p-6 space-y-8">
     <div className="space-y-2">
       <h2 className="text-2xl font-semibold tracking-wide uppercase">{name}</h2>

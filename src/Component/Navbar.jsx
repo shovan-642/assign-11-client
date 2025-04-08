@@ -1,10 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../Context/AuthContext";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+  const [theme, setTheme]=useState("light")
   const {user, logout}=useContext(AuthContext)
+
+
+
+  useEffect(()=>{
+    const savedTheme = localStorage.getItem("theme")
+    if(savedTheme){
+      setTheme(savedTheme)
+      document.documentElement.classList.add(savedTheme)
+    }
+  },[])
+
+  const toggleTheme = ()=>{
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme)
+    localStorage.setItem("theme", newTheme);
+
+    document.documentElement.setAttribute("data-theme", newTheme)
+    
+  }
 
   const links=<>
     <li><NavLink to={"/"}>Home</NavLink></li>
@@ -36,7 +57,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  <div className='btn btn-ghost bg-[#ff006e] hover:bg-[#ff0095] border-0 text-white mr-5'>
+    {
+      <button className="btn btn-accent bg-[#FF006E] text-white mr-1 lg:md:mr-3 border-0" onClick={toggleTheme}>{theme === "light" ? "Dark" : "Light"}</button>
+    }
+  <div className='btn btn-ghost bg-[#ff006e] hover:bg-[#ff0095] border-0 text-white mr-1 lg:md:mr-5'>
         {
             user && user?.email? (<button onClick={logout}>Logout</button>):(<div><Link to={"/auth/login"}>Login</Link></div>)
         }

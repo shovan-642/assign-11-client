@@ -19,7 +19,7 @@ const category = [
 const LanguageCategory = () => {
   return (
     <div className="w-8/12 mx-auto py-14">
-      <div className="cart-container grid grid-cols-3 gap-5">
+      <div className="cart-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {
             category.map((cat,idx)=>(
                 <div key={idx} className="card bg-base-100 card-xs shadow-2xl">

@@ -29,9 +29,9 @@ const Footer = () => {
       <div className="footer-container">
         <footer className="footer sm:footer-horizontal bg-[#323F44] text-white p-10">
           <aside>
-          <a className="btn btn-ghost text-2xl text-[#ff006e]">EduSync</a>
+          <a className="text-2xl text-[#ff006e]">EduSync</a>
             <p>
-              A Language Tutor Webiste
+              A Language Tutor Website
               <br />
               Providing reliable tutor since 2007
             </p>
