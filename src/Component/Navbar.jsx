@@ -44,7 +44,7 @@ const Navbar = () => {
     </div>
     <div className="dropdown dropdown-end">
 
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
         <div className="rounded-full">
         {
         user && user?.email ? (<div>
@@ -60,7 +60,7 @@ const Navbar = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <a className="justify-between">
+          <a className="justify-between uppercase font-bold">
             {user?.displayName || "User Name"}
           </a>
         </li>
