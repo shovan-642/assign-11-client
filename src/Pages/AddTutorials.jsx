@@ -77,6 +77,7 @@ readOnly
             name="image"
             className="input w-full"
             placeholder="Tutorial Photo Url"
+            required
           />
         </div>
         <div>
@@ -106,6 +107,7 @@ readOnly
             name="price"
             className="input w-full"
             placeholder="Input Price"
+            required
           />
         </div>
         <div>
@@ -117,11 +119,12 @@ readOnly
             placeholder="Input Review"
             value={0}
             readOnly
+            required
           />
         </div>
     <div className="col-span-full">
     <label className="fieldset-label">Description</label>
-          <textarea name="description" className="w-full h-50 border-2 p-3 border-gray-400" placeholder="Write Tutorial Description"></textarea>
+          <textarea name="description" className="w-full h-50 border-2 p-3 border-gray-400" placeholder="Write Tutorial Description" required></textarea>
 
     </div>
 
