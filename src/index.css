@@ -11,3 +11,10 @@ a.active{
     color: white;
     font-weight: bold;
 }
+
+ul>li:hover{
+    background-color: #ff006e;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}

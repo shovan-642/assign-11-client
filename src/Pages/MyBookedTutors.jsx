@@ -19,10 +19,14 @@ const MyBookedTutors = () => {
         },[user?.email, setLoading])
 
     return (
-        <div>
-            {
+        <div className='w-10/12 mx-auto'>
+            <div>
+                <div className='grid grid-cols-2 gap-5 my-5'>
+                {
                 bookTutors.map((bookTutor, idx)=><BookTutorCart key={idx} bookTutor={bookTutor}></BookTutorCart>)
             }
+                </div>
+            </div>
         </div>
     );
 };

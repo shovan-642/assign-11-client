@@ -49,14 +49,27 @@ const Tutorial = ({tutorial, tutorials, setTutorials}) => {
 
     return (
         <div>
-            <h1>{name}</h1>
-            <p>{tutor_email}</p>
-            <p>{language}</p>
-            <p>{review}</p>
-            <p>{price}</p>
-            <p>{description}</p>
-            <Link to={`/update-tutorial/${_id}`}><button className='btn btn-accent'>Edit</button></Link>
-            <button onClick={()=>handleDelete(_id)} className='btn btn-error'>Delete</button>
+<div className="flex rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+  <img src={image} alt="" className="mt-5 ml-5 object-cover object-center w-84 h-84 rounded-md h-72 dark:bg-gray-500" />
+  <div className="flex flex-col justify-between p-6 space-y-8">
+    <div className="space-y-2">
+      <h2 className="text-2xl font-semibold tracking-wide uppercase">{language}</h2>
+      <p className="text-lg font-bold">Name :   
+            <span className="font-light"> {name}</span></p>
+            <p className="text-lg font-bold">Price : BDT  
+            <span className="font-light"> {price}</span></p>
+            <p className="text-lg font-bold">Review :   
+            <span className="font-light"> {review}</span></p>
+            <p className="text-lg font-bold mt-5 mb-5">Description :   
+            <span className="font-light mt-5"> {description}</span></p>
+    </div>
+      <div className='space-x-3'>
+      <Link to={`/update-tutorial/${_id}`}><button className='btn btn-accent'>Edit</button></Link>
+      <button onClick={()=>handleDelete(_id)} className='btn btn-error'>Delete</button>
+      </div>
+  </div>
+</div>
+
         </div>
     );
 };

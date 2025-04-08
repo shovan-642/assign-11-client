@@ -19,10 +19,14 @@ const MyTutorials = () => {
     }, [user?.email, setLoading])
 
     return (
-        <div>
-            {
+        <div className=''>
+            <div className='w-10/12 mx-auto py-24'>
+                <div className='grid grid-cols-1 gap-5'>
+                {
                 tutorials.map((tutorial, index)=><Tutorial key={index} tutorial={tutorial} tutorials={tutorials} setTutorials={setTutorials}></Tutorial>)
             }
+                </div>
+            </div>
         </div>
     );
 };

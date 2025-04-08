@@ -11,7 +11,7 @@ const category = [
   { title: "Chinese Tutors", language: "Chinese", logo: <FaPagelines />, total_tutors: 9 },
   { title: "Japanese Tutors", language: "Japanese", logo: <FaToriiGate />, total_tutors: 18 },
   { title: "Korean Tutors", language: "Korean", logo: <FaHeadphones />, total_tutors: 7 },
-  { title: "Italian Tutors", language: "Italian", logo: <FaPizzaSlice />, total_tutors: 20 },
+  { title: "Italian Tutors", language: "Italic", logo: <FaPizzaSlice />, total_tutors: 20 },
   { title: "Arabic Tutors", language: "Arabic", logo: <FaLanguage />, total_tutors: 13 }
 ];
   

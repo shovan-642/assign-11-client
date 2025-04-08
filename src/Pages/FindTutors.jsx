@@ -40,13 +40,15 @@ const FindTutors = () => {
 
 
     return (
-        <div>
-            <div>
-            <input name='search' onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search here" className="input text-black" />
+        <div className='w-9/12 mx-auto'>
+            <div className='text-center'>
+            <input name='search' onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search here" className="input text-black my-10 border border-[#FF006E]" />
             </div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {
                 tutorData.map((tutor, idx)=><Tutor key={idx} tutor={tutor}></Tutor>)
             }
+            </div>
         </div>
     );
 };

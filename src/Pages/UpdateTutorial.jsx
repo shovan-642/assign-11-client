@@ -81,13 +81,23 @@ readOnly
       </div>
       <div>
       <label className="fieldset-label">Language</label>
-          <input
-            type="text"
-            name="language"
-            className="input w-full"
-            placeholder="Input Language"
+      <select
             defaultValue={language}
-          />
+            name="language"
+            className="select"
+            required
+          >
+            <option disabled={true}>Pick a Language</option>
+            <option>English</option>
+            <option>Spanish</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Chinese</option>
+            <option>Japanese</option>
+            <option>Korean</option>
+            <option>Italic</option>
+            <option>Arabic</option>
+          </select>
       </div>
 <div>
 <label className="fieldset-label">Price</label>

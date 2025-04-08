@@ -7,13 +7,19 @@ const Tutor = ({tutor}) => {
 
     return (
         <div>
-            <h1>{name}</h1>
-            <p>{tutor_email}</p>
-            <p>{language}</p>
-            <p>{review}</p>
-            <p>{price}</p>
-            <p>{description}</p>
-            <Link to={`/tutor/${_id}`}><button className='btn btn-accent'>View Details</button></Link>
+<div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+	<img src={TutorImage} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
+	<div className="flex flex-col justify-between p-6 space-y-8">
+		<div className="space-y-2">
+			<h2 className="text-2xl font-semibold tracking-wide uppercase">{name}</h2>
+			<p className="dark:text-gray-800">{language}</p>
+			<p className="dark:text-gray-800 font-bold">BDT {price}</p>
+			<p className="dark:text-gray-800">{review}</p>
+		</div>
+        <Link to={`/tutor/${_id}`}><button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-[#FF006E] hover:bg-[#FF0095] dark:text-gray-50">View Details</button></Link>
+	</div>
+</div>
+
 
         </div>
     );
