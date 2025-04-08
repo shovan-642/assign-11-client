@@ -11,3 +11,14 @@
 
 ## npm Packages
 
+1. Vite
+2. React Route
+3. Axios.
+4. Tailwind.
+5. daisy UI
+6. Mamba UI
+7. react icon
+8. cors
+9. vercel
+10. express
+11. JWT
