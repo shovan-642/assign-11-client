@@ -32,7 +32,9 @@ const FindTutors = () => {
                 url = `https://assignment-11-server-six-gamma.vercel.app/tutor?search=${search}`
             }
 
-            fetch(url)
+            fetch(url,{
+                credentials: 'include'
+            })
             .then((res)=>res.json())
             .then((data)=>setTutorData(data))
             .catch((error)=>console.log(error))

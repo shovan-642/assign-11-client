@@ -6,7 +6,7 @@ const BookTutorCart = ({bookTutor}) => {
     const {tutorId, name, image, language, price, tutorEmail, userEmail} = bookTutor
 
     const handleReviewCount = (tutorId)=>{
-        console.log(tutorId)
+
 
                 fetch(`https://assignment-11-server-six-gamma.vercel.app/review/${tutorId}`,{
                     method: 'PATCH',
@@ -18,7 +18,7 @@ const BookTutorCart = ({bookTutor}) => {
                 })
                 .then((res)=>res.json())
                 .then((data)=>{
-                  console.log(data)
+
                   if(data.modifiedCount > 0){
                     Swal.fire({
                       title: "Success!",
